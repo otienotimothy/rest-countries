@@ -9,5 +9,5 @@ export function Example() {
 		console.log(data);
 	}
 
-    return <h1>Hello World</h1>
+    return <h1 className="text-3xl font-bold">Hello world!</h1>;
 }
