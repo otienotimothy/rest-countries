@@ -1,6 +1,5 @@
-import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Example } from './components/Example';
+import { Navbar } from './components/navbar/Navbar';
 
 function App() {
 
@@ -8,7 +7,9 @@ function App() {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<Example />
+			<div className="min-h-screen bg-slate-700">
+				<Navbar />
+			</div>	
 		</QueryClientProvider>
 	);
 }
