@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { fetchAllCountries } from "./api-layer/countriesApi";
 
 // Components Import
-import { Navbar, Search, DisplayCountries } from "./components";
+import { Navbar, Search, FilterByRegion, DisplayCountries } from "./components";
 
 function App() {
 	const { isError, isLoading, error, data } = useQuery(
@@ -13,7 +13,11 @@ function App() {
 
 	const [searchTerm, setSearchTerm] = useState("");
 
+	const [region, setRegion] = useState('')
+
 	const onChange = (e) => setSearchTerm(e.target.value);
+
+	const changeRegion = e => setRegion(e.target.value)
 
 	if (isLoading) {
 		return <h1>Loading...</h1>;
@@ -26,9 +30,9 @@ function App() {
 				<Search
 					searchTerm={searchTerm}
 					onChange={onChange}
-					onSubmit={onSubmit}
 				/>
-				<DisplayCountries countries={data.data} searchTerm={searchTerm} />
+				<FilterByRegion region={region} changeRegion={changeRegion} />
+				<DisplayCountries countries={data.data} searchTerm={searchTerm} region={region} />
 			</div>
 		</div>
 	);
