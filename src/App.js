@@ -20,24 +20,20 @@ function App() {
 		console.log(searchTerm);
 	};
 
-	if (isLoading){
-		return <h1>Loading...</h1>
+	if (isLoading) {
+		return <h1>Loading...</h1>;
 	}
 
 	return (
 		<div className="min-h-screen bg-slate-700">
 			<Navbar />
 			<div className="container mx-auto pt-8">
-				<div>
-					<Search
-						searchTerm={searchTerm}
-						onChange={onChange}
-						onSubmit={onSubmit}
-					/>
-				</div>
-				<div>
-					<DisplayCountries countries = {data.data} />
-				</div>
+				<Search
+					searchTerm={searchTerm}
+					onChange={onChange}
+					onSubmit={onSubmit}
+				/>
+				<DisplayCountries countries={data.data} />
 			</div>
 		</div>
 	);
