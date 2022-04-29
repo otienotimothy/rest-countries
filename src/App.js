@@ -27,12 +27,15 @@ function App() {
 		<div className="min-h-screen bg-slate-700">
 			<Navbar />
 			<div className="container mx-auto pt-8">
-				<Search
+				<div className="flex flex-col md:flex-row md:justify-between">
+					<Search searchTerm={searchTerm} onChange={onChange} />
+					<FilterByRegion region={region} changeRegion={changeRegion} />
+				</div>
+				<DisplayCountries
+					countries={data.data}
 					searchTerm={searchTerm}
-					onChange={onChange}
+					region={region}
 				/>
-				<FilterByRegion region={region} changeRegion={changeRegion} />
-				<DisplayCountries countries={data.data} searchTerm={searchTerm} region={region} />
 			</div>
 		</div>
 	);

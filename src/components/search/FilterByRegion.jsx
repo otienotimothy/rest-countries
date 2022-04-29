@@ -1,6 +1,10 @@
-export function FilterByRegion({region, changeRegion}) {
+export function FilterByRegion({ region, changeRegion }) {
 	return (
-		<select value={region} onChange={changeRegion}>
+		<select
+			className="rounded-lg bg-slate-800 text-gray-50 self-start ml-10 mt-5 md:ml-0 md:mt-0 focus:border-none"
+			value={region}
+			onChange={changeRegion}
+		>
 			<option value="">Filter by Region</option>
 			<option value="">All</option>
 			<option value="Africa">Africa</option>
