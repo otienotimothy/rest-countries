@@ -1,6 +1,11 @@
 import { Country } from "./Country";
 
-export function DisplayCountries({ countries, searchTerm }) {
+export function DisplayCountries({ countries, searchTerm, region }) {
+
+	if(region){
+		countries = countries.filter(country => country.region === region)
+	}
+
 	if(searchTerm){
 		countries = countries.filter(country => country.name.common.includes(searchTerm))
 	}
