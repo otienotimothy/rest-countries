@@ -1,34 +1,45 @@
-import { useState } from 'react';
-import { QueryClient, QueryClientProvider } from "react-query";
-import { Navbar, Search } from './components'
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { fetchAllCountries } from "./api-layer/countriesApi";
+
+// Components Import
+import { Navbar, Search, DisplayCountries } from "./components";
 
 function App() {
+	const { isError, isLoading, error, data } = useQuery(
+		"countries",
+		fetchAllCountries
+	);
 
-	const [searchTerm, setSearchTerm] = useState('');
+	const [searchTerm, setSearchTerm] = useState("");
 
-	const onChange = (e) => setSearchTerm(e.target.value)
+	const onChange = (e) => setSearchTerm(e.target.value);
 
 	const onSubmit = (e) => {
-		e.preventDefault()
-		console.log(searchTerm)
+		e.preventDefault();
+		console.log(searchTerm);
+	};
+
+	if (isLoading){
+		return <h1>Loading...</h1>
 	}
 
-	let queryClient = new QueryClient()
-
 	return (
-		<QueryClientProvider client={queryClient}>
-			<div className="min-h-screen bg-slate-700">
-				<Navbar />
-				<div className="container mx-auto pt-8">
-					<div>
-						<Search searchTerm={searchTerm} onChange={onChange} onSubmit={onSubmit} />
-					</div>
-					<div>
-					</div>
+		<div className="min-h-screen bg-slate-700">
+			<Navbar />
+			<div className="container mx-auto pt-8">
+				<div>
+					<Search
+						searchTerm={searchTerm}
+						onChange={onChange}
+						onSubmit={onSubmit}
+					/>
 				</div>
-				
-			</div>	
-		</QueryClientProvider>
+				<div>
+					<DisplayCountries countries = {data.data} />
+				</div>
+			</div>
+		</div>
 	);
 }
 
