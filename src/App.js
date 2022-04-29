@@ -15,11 +15,6 @@ function App() {
 
 	const onChange = (e) => setSearchTerm(e.target.value);
 
-	const onSubmit = (e) => {
-		e.preventDefault();
-		console.log(searchTerm);
-	};
-
 	if (isLoading) {
 		return <h1>Loading...</h1>;
 	}
@@ -33,7 +28,7 @@ function App() {
 					onChange={onChange}
 					onSubmit={onSubmit}
 				/>
-				<DisplayCountries countries={data.data} />
+				<DisplayCountries countries={data.data} searchTerm={searchTerm} />
 			</div>
 		</div>
 	);
