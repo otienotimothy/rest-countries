@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Navbar } from './components/navbar/Navbar';
-import {Search} from './components/search/Search'
+import { Navbar, Search } from './components'
 
 function App() {
 
