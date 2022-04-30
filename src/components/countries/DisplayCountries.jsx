@@ -13,8 +13,8 @@ export function DisplayCountries({ countries, searchTerm, region }) {
 	console.log(countries);
 	return (
 		<div className="flex flex-wrap justify-evenly mt-5">
-			{countries.map((country) => (
-				<Country country={country} />
+			{countries.map((country, index) => (
+				<Country key={index} country={country} />
 			))}
 		</div>
 	);

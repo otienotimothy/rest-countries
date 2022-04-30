@@ -1,7 +1,7 @@
 export function FilterByRegion({ region, changeRegion }) {
 	return (
 		<select
-			className="rounded-lg bg-slate-800 text-gray-50 self-start ml-10 mt-5 md:ml-0 md:mt-0 focus:border-none"
+			className="rounded-lg bg-slate-800 text-gray-50 self-start ml-12 mt-5 md:ml-0 md:mt-0 focus:border-none"
 			value={region}
 			onChange={changeRegion}
 		>
