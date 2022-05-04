@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Project URL: [Project Repo](https://github.com/otienotimothy/rest-countries.git)
-- Live Site URL: 
+- Live Site URL: [Rest Countries](https://new-rest-countries.netlify.app/)
 
 ## My process
 
